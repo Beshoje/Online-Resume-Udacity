@@ -1,3 +1,5 @@
+var data = "%data%";
+
 var bio = {
 	"name": "Bashaer Mohammad",
 	"role": "Web Developer",
@@ -11,38 +13,34 @@ var bio = {
     "welcomeMessage": "Welcome All!", 
     "skills": [	"Programming", "UI/UX desinger", "design", "Drawing" ],
 	"biopic": "images/logo.svg" }
-    bio.display = function(){ 
-		var headerName = HTMLheaderName.replace("%data%", bio.name);				
-		var headerRole = HTMLheaderRole.replace("%data%", bio.role);
-		var welcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-		var bioPic = HTMLbioPic.replace("%data%", bio.biopic);
-		
-		
-		var contactMobile = HTMLmobile.replace("%data%", bio.contacts.mobile); 
-		var contactEmail = HTMLemail.replace("%data%", bio.contacts.email); 
-		var contactGethub = HTMLgithub.replace("%data%", bio.contacts.github); 
-		var contactTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter); 
-		var contactLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	bio.display = function(){ 
+		var headerName = HTMLheaderName.replace(data, bio.name);				
+		var headerRole = HTMLheaderRole.replace(data, bio.role);
+		var welcomeMsg = HTMLwelcomeMsg.replace(data, bio.welcomeMessage);
+		var bioPic = HTMLbioPic.replace(data, bio.biopic);	
+		var contactMobile = HTMLmobile.replace(data, bio.contacts.mobile); 
+		var contactEmail = HTMLemail.replace(data, bio.contacts.email); 
+		var contactGethub = HTMLgithub.replace(data, bio.contacts.github); 
+		var contactTwitter = HTMLtwitter.replace(data, bio.contacts.twitter); 
+		var contactLocation = HTMLlocation.replace(data, bio.contacts.location);
 		
 		$("#header").prepend(headerRole);
-		$("#header").prepend(headerName);
-		
+		$("#header").prepend(headerName);		
 		$("#topContacts, #footerContacts").append(contactMobile);
 		$("#topContacts, #footerContacts").append(contactEmail);
 		$("#topContacts, #footerContacts").append(contactGethub);
 		$("#topContacts, #footerContacts").append(contactTwitter);
-		$("#topContacts, #footerContacts").append(contactLocation);
-					
+		$("#topContacts, #footerContacts").append(contactLocation);					
 		$("#header").append(bioPic);
 		$("#header").append(welcomeMsg);
 		
 		if(bio.skills.length >0){
 			$("#header").append(HTMLskillsStart);
 			bio.skills.forEach(function(mySkills){
-				$("#skills").append(HTMLskills.replace("%data%", mySkills));
+				$("#skills").append(HTMLskills.replace(data, mySkills));
 			});
 		}		
-	}
+	};
 
 var education = {
 	"schools": [
@@ -71,10 +69,10 @@ var education = {
 		if(education.schools.length >0){
 			education.schools.forEach(function(mySchool){
 				$("#education").append(HTMLschoolStart);
-				var schoolName = HTMLschoolName.replace("%data%", mySchool.name).replace("#",mySchool.url);		
-				var schoolLocation = HTMLschoolLocation.replace("%data%", mySchool.location);
-				var schoolDegree = HTMLschoolDegree.replace("%data%", mySchool.degree);
-				var schoolDates = HTMLschoolDates.replace("%data%", mySchool.dates);
+				var schoolName = HTMLschoolName.replace(data, mySchool.name).replace("#",mySchool.url);		
+				var schoolLocation = HTMLschoolLocation.replace(data, mySchool.location);
+				var schoolDegree = HTMLschoolDegree.replace(data, mySchool.degree);
+				var schoolDates = HTMLschoolDates.replace(data, mySchool.dates);
 							
 				$(".education-entry:last").append(schoolName + schoolDegree);
 				//$(".education-entry:last").append(schoolName);
@@ -82,7 +80,7 @@ var education = {
 				$(".education-entry:last").append(schoolDates);
 				
 				mySchool.majors.forEach(function(myMajor){
-				$(".education-entry:last").append(HTMLschoolMajor.replace("%data%", myMajor));
+				$(".education-entry:last").append(HTMLschoolMajor.replace(data, myMajor));
 					
 				});								
 			});
@@ -91,10 +89,10 @@ var education = {
 		if(education.onlineCourses.length >0){
 			$("#education").append(HTMLonlineClasses);
 			education.onlineCourses.forEach(function(myCourses){
-				var onlineTitle = HTMLonlineTitle.replace("%data%", myCourses.title);			
-				var onlineSchool = HTMLonlineSchool.replace("%data%", myCourses.school);		
-				var onlineDates = HTMLonlineDates.replace("%data%", myCourses.dates);
-				var onlineURL = HTMLonlineURL.replace("%data%", myCourses.url).replace("#",myCourses.url);
+				var onlineTitle = HTMLonlineTitle.replace(data, myCourses.title);			
+				var onlineSchool = HTMLonlineSchool.replace(data, myCourses.school);		
+				var onlineDates = HTMLonlineDates.replace(data, myCourses.dates);
+				var onlineURL = HTMLonlineURL.replace(data, myCourses.url).replace("#",myCourses.url);
 				$("#education").append(HTMLschoolStart);
 				$(".education-entry:last").append(onlineTitle + onlineSchool);
 				//$(".education-entry:last").append(onlineSchool);
@@ -102,7 +100,7 @@ var education = {
 				$(".education-entry:last").append(onlineURL + "<br>");
 			});
 		}		
-	}
+	};
 
 var work = {
 	"jobs": [
@@ -118,11 +116,11 @@ var work = {
 		  if(work.jobs.length >0){
 			work.jobs.forEach(function(myJob){
 			$("#workExperience").append(HTMLworkStart);
-			var workEmployer = HTMLworkEmployer.replace("%data%", myJob.employer);							
-			var workTitle = HTMLworkEmployer.replace("%data%", myJob.title);							
-			var workLocation = HTMLworkLocation.replace("%data%", myJob.location);							
-			var workDates = HTMLworkDates.replace("%data%", myJob.dates);							
-			var workDescription = HTMLworkDescription.replace("%data%", myJob.description);
+			var workEmployer = HTMLworkEmployer.replace(data, myJob.employer);							
+			var workTitle = HTMLworkEmployer.replace(data, myJob.title);							
+			var workLocation = HTMLworkLocation.replace(data, myJob.location);							
+			var workDates = HTMLworkDates.replace(data, myJob.dates);							
+			var workDescription = HTMLworkDescription.replace(data, myJob.description);
 			
 			//put workEmployer + workTitle in the same line not work
 			$(".work-entry:last").append(workEmployer + workTitle);
@@ -133,7 +131,7 @@ var work = {
 			$(".work-entry:last").append(workDescription + "<br>");
 			});
 		}
-	} 
+	};
 
 var projects = {
 	 "projects": [
@@ -157,22 +155,22 @@ var projects = {
 		  if(projects.projects.length >0){
 			projects.projects.forEach(function(myProject){
 				$("#projects").append(HTMLprojectStart);
-				var projectTitle = HTMLprojectTitle.replace("%data%", myProject.title);
-				var projectDates = HTMLprojectDates.replace("%data%", myProject.dates);
-				var projectDescription = HTMLprojectDescription.replace("%data%", myProject.description);
+				var projectTitle = HTMLprojectTitle.replace(data, myProject.title);
+				var projectDates = HTMLprojectDates.replace(data, myProject.dates);
+				var projectDescription = HTMLprojectDescription.replace(data, myProject.description);
 				
 				$(".project-entry:last").append(projectTitle);
 				$(".project-entry:last").append(projectDates);
 				$(".project-entry:last").append(projectDescription);
 								
 				myProject.images.forEach(function(myImages){
-				var projectImage = HTMLprojectImage.replace("%data%", myImages);
+				var projectImage = HTMLprojectImage.replace(data, myImages);
 				
 				$(".project-entry:last").append(projectImage);
 				});	  
 			});
 		}
-	}
+	};
 
 //write function calls in the end for easily debugging purpose	
 bio.display();
